@@ -1,7 +1,7 @@
 {
   "main": "js/index",
   "typings": "js/index",
-  "name": "rxjs-grpc",
+  "name": "@ad2302/rxjs-grpc",
   "version": "0.2.6",
   "description": "Typesafe gRPC with RxJS in TypeScript",
   "license": "MIT",
