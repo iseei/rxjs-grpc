@@ -66,5 +66,8 @@
   },
   "peerDependencies": {
     "rxjs": "^6.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
