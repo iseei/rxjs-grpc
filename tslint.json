@@ -42,7 +42,7 @@
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "ordered-imports": [
-      true,
+      false,
       {
         "grouped-imports": true
       }

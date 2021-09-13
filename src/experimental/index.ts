@@ -1,6 +1,6 @@
 import { AnyDefinition } from '@grpc/proto-loader';
-import * as grpc from 'grpc';
-import { ServiceDefinition } from 'grpc';
+import * as grpc from '@grpc/grpc-js';
+import { ServiceDefinition } from '@grpc/grpc-js';
 import { Observable, Subscribable } from 'rxjs';
 
 import {
@@ -78,6 +78,7 @@ export function rawClientFactory<ClientFactory>(protoPath: string, packageName: 
     type GetterType = keyof ClientFactory;
     type ServiceType = LooseReturnType<ClientFactory[GetterType]>;
     prototype[`get${name}`] = function(this: Constructor) {
+      // @ts-ignore
       const grpcService = pkg[name] as GrpcService<ServiceType>;
       const definition = grpcService.service;
       typedKeys(definition).forEach(methodKey => {
