@@ -72,7 +72,7 @@ export async function buildTypeScript(protoFiles: string[]) {
     await fs.writeFile(jsFile, js);
 
     // Create TypeScript file
-    const tsFile = await call(tempDir.name, pbtsMain, [jsFile], 'ts', ['force-number']);
+    const tsFile = await call(tempDir.name, pbtsMain, [jsFile], 'ts');
     return transformTypeScriptSource(await fs.readFile(tsFile, 'utf8'));
   } finally {
     tempDir.removeCallback();
