@@ -58,12 +58,12 @@ export async function buildTypeScript(protoFiles: string[]) {
   const tempDir = await createTempDir();
   try {
     // Use pbjs to generate static JS code for the protobuf definitions
-    const jsFile = await call(tempDir.name, pbjsMain, protoFiles, 'js', ['keep-case'], {
+    const jsFile = await call(tempDir.name, pbjsMain, protoFiles, 'js', [], {
       target: 'static-module',
       wrap: 'commonjs',
     });
 
-    const jsonDescriptor = await call(tempDir.name, pbjsMain, protoFiles, 'js', ['keep-case'], {
+    const jsonDescriptor = await call(tempDir.name, pbjsMain, protoFiles, 'js', [], {
       target: 'json',
     });
     const root = protobuf.loadSync(jsonDescriptor);
